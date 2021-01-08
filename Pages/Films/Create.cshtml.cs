@@ -56,7 +56,7 @@ namespace Farcas_Viorel_Proiect.Pages.Films
             if (await TryUpdateModelAsync<Film>(
                 newFilm,
                 "Film",
-                i => i.Title, i => i.Length,
+                i => i.Image, i => i.Length, i => i.Title,
                 i => i.Price, i => i.ReleaseDate, i => i.DirectorID))
             {
                 _context.Film.Add(newFilm);

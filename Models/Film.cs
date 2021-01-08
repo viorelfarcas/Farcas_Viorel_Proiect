@@ -11,6 +11,9 @@ namespace Farcas_Viorel_Proiect.Models
     {
         public int ID { get; set; }
 
+        [Display(Name = "Image")]
+        public string Image { get; set; }
+
         [Required, StringLength(150, MinimumLength = 3)]
         [Display(Name = "Film Title")]
         public string Title { get; set; }

@@ -4,14 +4,16 @@ using Farcas_Viorel_Proiect.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Farcas_Viorel_Proiect.Migrations
 {
     [DbContext(typeof(Farcas_Viorel_ProiectContext))]
-    partial class Farcas_Viorel_ProiectContextModelSnapshot : ModelSnapshot
+    [Migration("20210108161517_Poster")]
+    partial class Poster
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,11 +61,11 @@ namespace Farcas_Viorel_Proiect.Migrations
                     b.Property<int>("DirectorID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Length")
                         .HasColumnType("int");
+
+                    b.Property<string>("Poster")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(6, 2)");

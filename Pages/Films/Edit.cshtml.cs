@@ -70,7 +70,7 @@ namespace Farcas_Viorel_Proiect.Pages.Films
             if (await TryUpdateModelAsync<Film>(
                 filmToUpdate,
                 "Film",
-                i => i.Title, i => i.Length,
+                i => i.Image, i => i.Length, i => i.Title,
                 i => i.Price, i => i.ReleaseDate, i => i.Director))
             {
                 UpdateFilmCategories(_context, selectedCategories, filmToUpdate);
