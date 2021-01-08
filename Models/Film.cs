@@ -31,7 +31,7 @@ namespace Farcas_Viorel_Proiect.Models
         public int DirectorID { get; set; }
         public Director Director { get; set; } //navigation property
 
-        [Display(Name = "Genre")]
+        [Display(Name = "Genres")]
         public ICollection<FilmCategory> FilmCategories { get; set; }
     }
 }
