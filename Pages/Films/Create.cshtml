@@ -1,0 +1,84 @@
+﻿@page
+@model Farcas_Viorel_Proiect.Pages.Films.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Film.Title" class="control-label"></label>
+                <input asp-for="Film.Title" class="form-control" />
+                <span asp-validation-for="Film.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.Length" class="control-label"></label>
+                <input asp-for="Film.Length" class="form-control" />
+                <span asp-validation-for="Film.Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Film.Price" class="control-label"></label>
+                <input asp-for="Film.Price" class="form-control" />
+                <span asp-validation-for="Film.Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Film.ReleaseDate" class="control-label"></label>
+                <input asp-for="Film.ReleaseDate" class="form-control" />
+                <span asp-validation-for="Film.ReleaseDate" class="text-danger"></span>
+            </div>
+            <label asp-for="Film.DirectorID" class="control-label">Director Name</label>
+            <select asp-for="Film.DirectorID" class="form-control" asp-items="ViewBag.DirectorID">
+            </select>
+            <span asp-validation-for="Film.DirectorID" class="text-danger"></span>
+
+            <div class="form-group">
+                <div class="table">
+                    <table>
+                        <tr>
+                            @{
+                                int cnt = 0;
+                                foreach (var cat in Model.AssignedCategoryDataList)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                    @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <input type="checkbox"
+                                               name="selectedCategories"
+                                               value="@cat.CategoryID"
+                                               @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
+                                        @cat.CategoryID @: @cat.Name
+                                    @:</td>
+                                }
+                            @:</tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+
+                            <br />
+
+
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+</form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
